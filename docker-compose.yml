@@ -58,11 +58,24 @@ services:
     networks:
       - kartka-network
 
+  frontend-dev:
+    build:
+      context: ./frontend
+      target: dev
+    volumes:
+      - ./frontend:/vue/app
+      - /vue/app/node_modules
+    ports:
+      - "5173:5173"
+    networks:
+      - kartka-network
+    environment:
+      - NODE_ENV=development
+
   frontend:
     build:
       context: ./frontend
-    volumes:
-      - ./frontend:/vue/app
+      target: production
     ports:
       - "8181:80"
     networks:
