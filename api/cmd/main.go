@@ -6,6 +6,7 @@ import (
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	"github.com/jalvess021/kartka/api/internal/db" // Atualize o caminho conforme a sua estrutura de diretórios
 	"github.com/jalvess021/kartka/api/internal/infra/akafka"
 	repository "github.com/jalvess021/kartka/api/internal/infra/repository/pgsql"
@@ -22,6 +23,14 @@ func main() {
 	defer db.Close();
 
 	r := chi.NewRouter()
+
+	//configurando cors para acesso do front-end
+	r.Use(cors.Handler(cors.Options{
+		AllowedOrigins:   []string{"http://127.0.0.1:5173", "http://127.0.0.1:8181"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true, // Permite cookies e credenciais
+	}))
 	
 	// chama as rotas
 	web.SetupRoutes(r, db);
