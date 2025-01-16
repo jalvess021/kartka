@@ -63,7 +63,7 @@ Além disso, a aplicação utiliza Injeção de Dependências (DI) para garantir
   go run cmd/main.go
 ```
 
-Após feito o passo a passo, o frontend estará acessível LOCALMENTE em: [http://localhost:8181](http://localhost:8181).
+Após feito o passo a passo, o frontend estará acessível LOCALMENTE em: [http://127.0.0.1:5173](http://127.0.0.1:5173).
 
 ## Como Funciona? 🔄
 
