@@ -7,7 +7,7 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
-	"github.com/jalvess021/kartka/api/internal/db" // Atualize o caminho conforme a sua estrutura de diretórios
+	"github.com/jalvess021/kartka/api/internal/db"
 	"github.com/jalvess021/kartka/api/internal/infra/akafka"
 	repository "github.com/jalvess021/kartka/api/internal/infra/repository/pgsql"
 	"github.com/jalvess021/kartka/api/internal/infra/web"
